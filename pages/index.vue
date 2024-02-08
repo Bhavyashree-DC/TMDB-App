@@ -1,8 +1,8 @@
 <template>
   <div class="conatiner">
-    <NavBar></NavBar>
-    <SearchBar></SearchBar>
-    <MoviesList></MoviesList>
+      <NavBar></NavBar>
+      <SearchBar></SearchBar>
+      <MoviesList></MoviesList>
   </div>
    
 </template>
