@@ -4,9 +4,7 @@
       <SearchBar></SearchBar>
       <MoviesList></MoviesList>
   </div>
-   
 </template>
-
 <script>
 export default {
   name: 'IndexPage'

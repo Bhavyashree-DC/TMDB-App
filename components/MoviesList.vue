@@ -4,51 +4,48 @@
             <h1>Trending Movies</h1>
         </div>
         <ul class="lists">
-            <li v-for="movie in movies" :key="movie.id">
-                <NuxtLink :to="getMovieDetailsRoute(movie.id)">
-                    <div class="details">
-                        <img :src="getMoviePosterUrl(movie.poster_path)" alt="Movie Poster" />
-                        <h4>{{ movie.title }}</h4>
-                        <p>{{ movie.release_date }}</p>
-                    </div>
-                </NuxtLink>
-            </li>
+           <li v-for="movie in movies" :key="movie.id">
+            <nuxt-link class='links' to="/">
+              <div class="movies-list">
+                <img :src="getMoviePosterUrl(movie.poster_path)" alt="Movie Poster" />
+                  <h4> {{ movie.title }}</h4>
+                  <p>{{ movie.release_date }}</p> 
+              </div>
+            </nuxt-link>
+          </li>
         </ul>
     </div>
   </template>
   
   <script>
+    import axios from "axios"
 
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        movies: [],
-      };
-    },
-    async fetch() {
-      const apiKey = 'e9299dd3a078cf1dc93cbb605146c606';
-      const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
-  
-      try {
-        const response = await axios.get(apiUrl);
-        this.movies = response.data.results;
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    },
-    methods: {
-      getMoviePosterUrl(posterPath) {
-        const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
-        return posterPath ? `${basePosterUrl}${posterPath}` : '';
+    export default {
+       name:'MoviesList',
+       data(){
+          return{
+            movies:[]
+          }
+       },
+       async fetch(){
+            const apiKey = 'e9299dd3a078cf1dc93cbb605146c606';
+            const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+            
+            try{
+                const response = await axios.get(apiUrl);
+                this.movies = response.data.results;
+            }catch(e) {
+              console.error(e);
+            }
       },
-      getMovieDetailsRoute(id) {
-      console.log(`Redirecting to /movies/${id}`);
-      return `/movies/${id}`;
-    },
-    },
-  };
+      methods: {
+          getMoviePosterUrl(posterPath) {
+            const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
+            return posterPath ? `${basePosterUrl}${posterPath}` : '';
+          }
+       }
+    }
+           
   </script>
 
 <style scoped>
@@ -77,27 +74,31 @@
    
     list-style: none;
 }
+.links{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
 .lists img{
     width: 250px;
     height: 340px;
     border-radius: 20px;
 }
-.details{
+.movies-list{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap:10px;
 }
 .details h4{
     font-size: 24px;
     font-weight: bold;
-    padding: 20px;
     list-style: none;
 }
 .details p{
     font-size: 20px;
     font-weight: 500;
-    padding: 8px;
     list-style: none;
     text-decoration: none;
 }
