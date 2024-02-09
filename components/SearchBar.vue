@@ -27,12 +27,12 @@
         }
     }
 </script>
-
 <style scoped>
 .search-bar {
     width: 100%;
     min-height: 450px;
-    background-color: rgb(204,204,204);
+    background:url('../static/background.jpg') no-repeat;
+    background-size:cover;
 }
 .header{
     font-size: 2rem;
@@ -83,16 +83,16 @@
     top: 50%; 
     transform: translateY(-50%);
     font-size: 24px;
+    font-weight: 600;
     padding: 22px 38px;
     border: none;
-    background-color: #007bff;
+    background: linear-gradient(to right,rgba(30,213,169) 0%,rgba(1,180,228) 100%);
     color: #fff;
     border-radius: 40px;
     cursor: pointer;
 }
 
-.search-bar-input button:hover {
-    background-color: #0056b3;
+.search-bar-input button:hover{
+    color: black;
 }
-
 </style>
