@@ -68,16 +68,16 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 100%;
+    width: 86%;
     height: 100%;
     padding: 10px;
-    margin: 20px;
+    margin: 0 auto;
     overflow-x: auto;
 }
 .header{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 30px 0px;
 }
 .lists{
     display: flex;
