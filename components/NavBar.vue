@@ -79,6 +79,7 @@
     font-weight: 600;
     padding: 20px 90px 20px 80px;
     color: white;
+    cursor: pointer;
   }
   .lang{
     font-size: 16px;
@@ -87,6 +88,7 @@
     color: white;
     border: 2px solid white;
     border-radius: 5px;
+    cursor: pointer;
   }
   .ri-search-line{
     color: rgb(93, 208, 202);
