@@ -30,7 +30,7 @@
 </script>
 <style scoped>
 .search-container {
-    width: 80%;
+    width: 86%;
     height: 500px; 
     margin: 0 auto; 
 
