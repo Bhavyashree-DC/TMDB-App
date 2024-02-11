@@ -31,15 +31,17 @@
 <style scoped>
 .search-container {
     width: 80%;
-    min-height: 480px;
+    height: 500px; 
+    margin: 0 auto; 
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
-    background:url('../static/background.jpg') no-repeat;
-    background-size:cover;
+    background: url('../static/background.jpg') no-repeat;
+    background-size: cover;
+ 
 }
 .search-content{
     display: flex;
@@ -68,20 +70,22 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin:50px 30px;
+    margin: 50px 30px;
     padding: 30px 50px;
+    width: 100%; /* Add width property */
 }
 
 .search-button {
     position: relative;
-    width: 100%; 
+    width: 100%;
 }
 
 .search-bar-input input[type='text'] {
-    width: calc(100% - 80px); 
+    width: 95%; 
     height: 70px;
     border-radius: 40px;
     padding: 8px 40px;
+    margin-right: 50px; 
     border: none;
     outline: none;
     box-sizing: border-box;
