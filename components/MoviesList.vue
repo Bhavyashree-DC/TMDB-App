@@ -7,7 +7,7 @@
            <li v-for="movie in movies" :key="movie.id">
             <nuxt-link class='links' to="/">
               <div class="movies-list">
-                <img :src="getMoviePosterUrl(movie.poster_path)" alt="Movie Poster" />
+                <img :src="moviePosterUrl(movie.poster_path)" alt="Movie Poster" />
                   <h4> {{ movie.title }}</h4>
                   <p>{{ movie.release_date }}</p> 
               </div>
@@ -18,32 +18,46 @@
   </template>
   
   <script>
-    import axios from "axios"
-
+  
     export default {
        name:'MoviesList',
-       data(){
-          return{
-            movies:[]
-          }
-       },
        async fetch(){
-            const apiKey = 'e9299dd3a078cf1dc93cbb605146c606';
-            const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+          await this.$store.dispatch('movies/fetchMovies')
+       },
+       methods:{
+        moviePosterUrl(poster_path){
+          const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
+          return poster_path ? `${basePosterUrl}${poster_path}` : '';
+        }
+       },
+       computed :{
+         movies(){
+            return this.$store.state.movies.movies;
+         },
+        
+      }
+    //    data(){
+    //       return{
+    //         movies:[]
+    //       }
+    //    },
+    //    async fetch(){
+    //         const apiKey = 'e9299dd3a078cf1dc93cbb605146c606';
+    //         const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
             
-            try{
-                const response = await axios.get(apiUrl);
-                this.movies = response.data.results;
-            }catch(e) {
-              console.error(e);
-            }
-      },
-      methods: {
-          getMoviePosterUrl(posterPath) {
-            const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
-            return posterPath ? `${basePosterUrl}${posterPath}` : '';
-          }
-       }
+    //         try{
+    //             const response = await axios.get(apiUrl);
+    //             this.movies = response.data.results;
+    //         }catch(e) {
+    //           console.error(e);
+    //         }
+    //   },
+    //   methods: {
+    //       getMoviePosterUrl(posterPath) {
+    //         const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
+    //         return posterPath ? `${basePosterUrl}${posterPath}` : '';
+    //       }
+    //    }
     }
            
   </script>

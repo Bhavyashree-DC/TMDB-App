@@ -1,18 +1,19 @@
 <template>
-    <div class="search-bar">
-        <div class="header">
-            <h1>{{ header }}</h1>
-        </div>
-        <div class="title">
-            <h2>{{ title }}</h2>
-        </div>
-        <div class="search-bar-input">
-            <div class="search-button">
-                <input type="text" placeholder=" Search for movies,tv shows,people ">
-                <button>Search</button>
+    <div class="search-container">
+        <div class="search-content">
+            <div class="header">
+                <h1>{{ header }}</h1>
             </div>
-        
-        </div>
+            <div class="title">
+                <h2>{{ title }}</h2>
+            </div>
+            <div class="search-bar-input">
+                <div class="search-button">
+                    <input type="text" placeholder=" Search for movies,tv shows,people ">
+                    <button>Search</button>
+                </div>
+            </div>
+        </div>      
     </div>
 </template>
 
@@ -28,11 +29,26 @@
     }
 </script>
 <style scoped>
-.search-bar {
-    width: 100%;
-    min-height: 450px;
+.search-container {
+    width: 80%;
+    min-height: 480px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
     background:url('../static/background.jpg') no-repeat;
     background-size:cover;
+}
+.search-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    /* min-height: 450px;
+    background: rgba(0, 0, 0, 0.5); */
 }
 .header{
     font-size: 2rem;
