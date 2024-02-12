@@ -1,8 +1,5 @@
 <template>
-  <div class="conatiner">
-      <NavBar></NavBar>
-      <MoviesList></MoviesList>
-  </div>
+     <Nuxt />
 </template>
 <script>
 export default {
