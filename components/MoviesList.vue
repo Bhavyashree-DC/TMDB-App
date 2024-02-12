@@ -1,42 +1,43 @@
 <template>
-    <div class="movies-container">
-        <div class="header">
-            <h1>Trending Movies</h1>
-        </div>
-        <ul class="lists">
-           <li v-for="movie in movies" :key="movie.id">
-            <nuxt-link class='links' to="/">
-              <div class="movies-list">
-                <img :src="moviePosterUrl(movie.poster_path)" alt="Movie Poster" />
-                  <h4> {{ movie.title }}</h4>
-                  <p>{{ movie.release_date }}</p> 
-              </div>
-            </nuxt-link>
-          </li>
-        </ul>
+  <div class="movies-container">
+    <div class="header">
+      <h1>Trending Movies</h1>
     </div>
-  </template>
-  
-  <script>
-  
-    export default {
-       name:'MoviesList',
-       async fetch(){
-          await this.$store.dispatch('movies/fetchMovies')
-       },
-       methods:{
-        moviePosterUrl(poster_path){
-          const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
-          return poster_path ? `${basePosterUrl}${poster_path}` : '';
-        }
-       },
-       computed :{
-         movies(){
-            return this.$store.state.movies.movies;
-         },
-        
-      }
-    //    data(){
+    <ul class="lists">
+      <li v-for="movie in movies" :key="movie.id">
+        <nuxt-link :to="`/movies/${movie.id}`" class='links'>
+          <div class="movies-list">
+            <img :src="moviePosterUrl(movie.poster_path)" alt="Movie Poster" />
+            <h4>{{ movie.title }}</h4>
+            <p>{{ movie.release_date }}</p>
+          </div>
+        </nuxt-link>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MoviesList',
+  async fetch() {
+    await this.$store.dispatch('movies/fetchMovies');
+  },
+  methods: {
+    moviePosterUrl(poster_path) {
+      const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
+      return poster_path ? `${basePosterUrl}${poster_path}` : '';
+    },
+   
+  },
+  computed: {
+    movies() {
+      return this.$store.state.movies.movies;
+    },
+  },
+};
+</script>
+    <!-- //    data(){
     //       return{
     //         movies:[]
     //       }
@@ -60,7 +61,7 @@
     //    }
     }
            
-  </script>
+  </script> --> 
 
 <style scoped>
 .movies-container{
