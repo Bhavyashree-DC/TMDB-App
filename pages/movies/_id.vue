@@ -1,13 +1,15 @@
 <template>
     <div class="movie-overview">
-        <div class="header">
-            <h1>{{ movie.title }}</h1>
-        </div>
-        <div class="overview">
+          <div class="back-arrow">
+                <NuxtLink to="/" class="back">
+                   <i class="ri-arrow-left-s-line"></i>
+                </NuxtLink>
+          </div>
+          <div class="review">
             <img :src="moviePosterUrl(movie.poster_path)" alt="Movie Poster" />
             
             <div class="contents">
-                <h1><b>Original Name:  {{ movie.original_title }} </b></h1>
+                <h1><b>Title:  {{ movie.title }} </b></h1>
                 <p><strong>Release Date: </strong>{{ movie.release_date }}</p>
                 <h3><strong>Overview: </strong></h3>
                 <p>{{ movie.overview }}</p>
@@ -19,6 +21,7 @@
                 <p><strong>Vote Average: </strong>{{ movie.vote_average }}</p>
                 <p><strong>Vote Count: </strong>{{ movie.vote_count }}</p>   
             </div>
+
         </div>
      
       <!-- Add other details as needed -->
@@ -48,15 +51,20 @@
   };
   </script>
   
-  <style scoped>
+<style scoped>
+
+ @import 'remixicon/fonts/remixicon.css';
    .movie-overview{
-       width:76%;
-       height: 100vh;
-       margin: 0px auto;
+       width:70%;
+       height: 90vh;
+       margin: 50px auto;
        display: flex;
        align-items: flex-start;
        justify-content: flex-start;
        flex-direction: column;
+       background-color: #F7EFE5;
+       border-radius: 20px;
+       box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
    }
    .movie-overview .header{
        font-size: 1.3rem;
@@ -65,15 +73,14 @@
        margin: 30px;
        padding: 10px ;
    }
-   .overview{
+   .review{
       display: flex;
       align-self: flex-start;
       justify-content: center;
-      /* flex-direction: column; */
    }
-   .overview img{
-      width: 300px;
-      height: 460px;
+   .review img{
+      width: 400px;
+      height: 620px;
       border-radius: 20px;
       margin: 60px;
      
@@ -93,13 +100,31 @@
       font-size: 24px;
       font-weight: 400;
       /* padding-bottom: 8px; */
-      line-height: 40px;
+      
    }
    .contents p{
       font-size: 24px;
       line-height: 20px;
       padding: 20px 0px;
+      line-height: 1.2;
    }
+   .back-arrow{
+     display: flex;
+     margin: 30px;
 
+   }
+  .back{
+      width: 40px;
+      height: 40px;
+      background-color: #EEA5A6;
+      border-radius: 20px;
+      text-decoration: none;
+
+      font-size: 36px;
+      font-weight: 600;
+  }
+  .back :hover{
+      color: #D04848;
+  }
   </style>
   
