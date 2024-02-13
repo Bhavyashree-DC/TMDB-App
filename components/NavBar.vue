@@ -6,10 +6,10 @@
             </div>
             <div class="menu">
                 <ul>
-                    <NuxtLink class="link" to="">Movies</NuxtLink>
-                    <NuxtLink class="link" to="">TV Shows</NuxtLink>
-                    <NuxtLink class="link" to="">People</NuxtLink>
-                    <NuxtLink class="link" to="">More</NuxtLink>
+                    <NuxtLink class="link" to="/">Movies</NuxtLink>
+                    <NuxtLink class="link" to="/">TV Shows</NuxtLink>
+                    <NuxtLink class="link" to="/">People</NuxtLink>
+                    <NuxtLink class="link" to="/">More</NuxtLink>
                 </ul>
             </div>
         </div>

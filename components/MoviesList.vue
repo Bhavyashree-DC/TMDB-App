@@ -37,31 +37,6 @@ export default {
   },
 };
 </script>
-    <!-- //    data(){
-    //       return{
-    //         movies:[]
-    //       }
-    //    },
-    //    async fetch(){
-    //         const apiKey = 'e9299dd3a078cf1dc93cbb605146c606';
-    //         const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
-            
-    //         try{
-    //             const response = await axios.get(apiUrl);
-    //             this.movies = response.data.results;
-    //         }catch(e) {
-    //           console.error(e);
-    //         }
-    //   },
-    //   methods: {
-    //       getMoviePosterUrl(posterPath) {
-    //         const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
-    //         return posterPath ? `${basePosterUrl}${posterPath}` : '';
-    //       }
-    //    }
-    }
-           
-  </script> --> 
 
 <style scoped>
 .movies-container{

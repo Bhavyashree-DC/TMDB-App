@@ -1,7 +1,7 @@
 // store/movies.js
 export const state = () => ({
    movies: [],
-   selectedMovie: null, // Add this line to initialize selectedMovie
+   selectedMovie: null, 
  });
  
  export const mutations = {
