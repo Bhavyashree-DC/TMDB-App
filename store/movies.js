@@ -29,7 +29,7 @@ export const state = () => ({
  
  export const actions = {
      fetchList({ commit }){
-         this.$axios.get('https://api.themoviedb.org/3/discover/movie?api_key=e9299dd3a078cf1dc93cbb605146c606')
+         this.$axios.get(`${process.env.baseUrl}/discover/movie?api_key=${process.env.apiKey}`)
          .then((res) =>{
             const { page, total_pages, total_results, results } = res.data
             commit('setPagination', { page, total_pages, total_results, results })
@@ -40,7 +40,7 @@ export const state = () => ({
          })
      },
      fetchData({ commit }, movieId){
-        this.$axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=e9299dd3a078cf1dc93cbb605146c606`)
+        this.$axios.get(`${process.env.baseUrl}/movie/${movieId}?api_key=${process.env.apiKey}`)
       .then((res) =>{
          commit('setData',res.data)
       })

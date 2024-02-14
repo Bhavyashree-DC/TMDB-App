@@ -5,9 +5,14 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    apiKey: process.env.API_KEY || null
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'TMDB-App',
+    title: 'The Movie DataBase',
     htmlAttrs: {
       lang: 'en'
     },

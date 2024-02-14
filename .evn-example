@@ -1,0 +1,2 @@
+API_key = "" # API KEY for the TMDB 
+BASE_URL = "" URL for TMDB API 
