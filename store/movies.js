@@ -1,41 +1,52 @@
-// store/movies.js
 export const state = () => ({
-   movies: [],
-   selectedMovie: null, 
+   list:[],
+   data:null,
+   pagination :null,
  });
  
+ export const getters ={
+    getList(state){
+       return state.list
+    },
+    getData(state){
+       return state.data
+    },
+    getPagination(state){
+       return state.pagination
+    }
+ }
  export const mutations = {
-   setMovies(state, movies) {
-     state.movies = movies;
+   setList(state, value) {
+     state.list = value;
    },
-   setSelectedMovie(state, movie) {
-     state.selectedMovie = movie;
+   setData(state, value) {
+     state.data = value
    },
+   setPagination(state,value){
+      state.pagination = value
+   }
  };
  
  export const actions = {
-   async fetchMovies({ commit }) {
-     const apiKey = 'e9299dd3a078cf1dc93cbb605146c606';
-     const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
- 
-     try {
-       const response = await this.$axios.get(apiUrl);
-       commit('setMovies', response.data.results);
-     } catch (error) {
-       console.log(error);
-     }
-   },
- 
-   async fetchMovieDetails({ commit }, movieId) {
-     const apiKey = 'e9299dd3a078cf1dc93cbb605146c606';
-     const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
- 
-     try {
-       const response = await this.$axios.get(apiUrl);
-       commit('setSelectedMovie', response.data);
-     } catch (error) {
-       console.log(error);
-     }
-   },
+     fetchList({ commit }){
+         this.$axios.get('https://api.themoviedb.org/3/discover/movie?api_key=e9299dd3a078cf1dc93cbb605146c606')
+         .then((res) =>{
+            const { page, total_pages, total_results, results } = res.data
+            commit('setPagination', { page, total_pages, total_results, results })
+            commit('setList',results)
+         })
+         .catch((error) =>{
+            console.log(error)
+         })
+     },
+     fetchData({ commit }, movieId){
+        this.$axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=e9299dd3a078cf1dc93cbb605146c606`)
+      .then((res) =>{
+         commit('setData',res.data)
+      })
+      .catch((error) =>{
+         console.log(error)
+      })
+  }
  };
  
