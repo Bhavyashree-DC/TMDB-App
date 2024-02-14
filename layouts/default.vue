@@ -1,7 +1,17 @@
 <template> 
-   <Nuxt />
-</template>
+   <div class="container">
+      <NavBar></NavBar> 
 
+      <Nuxt />
+   </div>
+  
+</template>
+<script>
+export default{
+   name:'AppLayout',
+   
+}
+</script>
 <style>
 * {
    margin: 0;
