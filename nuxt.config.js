@@ -4,7 +4,10 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    apiKey : process.env.API_KEY || null
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'TMDB-App',
@@ -28,6 +31,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/axios'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
