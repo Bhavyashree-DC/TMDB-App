@@ -6,7 +6,7 @@
     <ul class="lists">
       <li v-for="movie in movies" :key="movie.id">
         <nuxt-link :to="`/movies/${movie.id}`" class='links'>
-          <div class="movies-list">
+          <div class="movie-lists">
             <img :src="moviePosterUrl(movie.poster_path)" alt="Movie Poster" />
             <h4>{{ movie.title }}</h4>
             <p>{{ movie.release_date }}</p>
@@ -74,7 +74,7 @@ export default {
     height: 340px;
     border-radius: 20px;
 }
-.movies-list{
+.movie-lists{
     display: flex;
     flex-direction: column;
     align-items: center;
