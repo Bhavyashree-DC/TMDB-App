@@ -84,7 +84,7 @@
   .lang{
     font-size: 16px;
     font-weight: 600;
-    padding: 8px;
+    padding: 0px 8px;
     color: white;
     border: 2px solid white;
     border-radius: 5px;

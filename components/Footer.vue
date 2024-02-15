@@ -11,7 +11,6 @@
                     <NuxtLink to="/" class="link">Contact Us</NuxtLink>
                     <NuxtLink to="/" class="link">Support Forums</NuxtLink>
                     <NuxtLink to="/" class="link">API </NuxtLink>
-                    <NuxtLink to="/" class="link">System status</NuxtLink>
                 </div>
                 <div class="get-involved">
                     <h2>Get Involved</h2>
@@ -43,12 +42,13 @@
 <style scoped>
    .footer-container{
        width:100%;
-       height: 400px;
+       height: 300px;
        background-color: rgb(3,37,65);
 
        display: flex;
        align-items: center;
        justify-content: center;
+       letter-spacing: 1px;
 
    }
    .menu{
@@ -65,14 +65,14 @@
     .menu-lists{
          display: flex;
          align-items: center;
-         justify-content: space-between;
+         justify-content: flex-start;
          gap:20px;
 
     }
    .about-TMDB h2,
    .legal h2,
    .get-involved h2{
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       font-weight: 600;
       text-transform: uppercase;
       color: white;
@@ -91,9 +91,11 @@
    }
   
    .link{
+    text-align: justify;
      text-decoration: none;
-     font-size: 24px;
+     font-size: 23px;
      font-weight: 600;
      color: white;
+
    }
 </style>
