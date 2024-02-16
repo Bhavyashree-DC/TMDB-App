@@ -42,7 +42,7 @@
 <style scoped>
    .footer-container{
        width:100%;
-       height: 300px;
+       height: 240px;
        background-color: rgb(3,37,65);
 
        display: flex;
@@ -72,7 +72,7 @@
    .about-TMDB h2,
    .legal h2,
    .get-involved h2{
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 600;
       text-transform: uppercase;
       color: white;
@@ -93,7 +93,7 @@
    .link{
     text-align: justify;
      text-decoration: none;
-     font-size: 23px;
+     font-size: 20px;
      font-weight: 600;
      color: white;
 

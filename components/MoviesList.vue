@@ -1,10 +1,62 @@
-<template>
+<!-- <template>
+ 
+</template>
+
+<script>
+  import {mapGetters} from 'vuex'
+  export default {
+     name:'MovieList',
+     computed:{
+      ...mapGetters({
+          trendingMovies:'movies/getList'
+      })
+     },
+    //  mounted(){
+    //     this.$store.dispatch('movies/fetchList','')
+    //  }
+ 
+  }
+</script>
+
+<style scoped>
+.movie-lists{
+  width:82%;
+   margin: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap:10px;
+   overflow-x: auto;
+}
+
+.movies{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap:18px;
+   text-decoration: none;
+}
+.movies img{
+  width: 260px;
+  height:380px;
+  border-radius: 20px;
+}
+.movies h3{
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: black;
+   padding:10px;
+}
+</style> -->
+
+<!-- <template>
   <div class="movies-container">
     <div class="header">
       <h1>Trending Movies</h1>
     </div>
     <ul class="lists">
-      <li v-for="movie in movies" :key="movie.id">
+      <li v-for="movie in trendingMovies" :key="movie.id">
         <nuxt-link :to="`/movies/${movie.id}`" class='links'>
           <div class="movie-lists">
             <img :src="moviePosterUrl(movie.poster_path)" alt="Movie Poster" />
@@ -93,4 +145,4 @@ export default {
     text-decoration: none;
 }
 </style>
-  
+   -->
