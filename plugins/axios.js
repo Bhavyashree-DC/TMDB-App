@@ -6,15 +6,15 @@ export default function ({$axios}) {
 
 const onRequestHandler = (config) => {
     console.log(config);
-     config.params = {
+     config.params = {    
         api_key: process.env.apiKey
      }
-    // api keys is append with every request 
+     // api keys is append with every request 
      console.log('Making Request to' + config.url);
      return config
 }
 
 $axios.onRequest(onRequestHandler)
 $axios.onError(errorHandler)
-$axios.setBaseURL(`${process.env.baseUrl}`)// defining BaseUrl 
+$axios.setBaseURL(`${process.env.baseUrl}`) // defining BaseUrl 
 }
