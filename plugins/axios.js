@@ -13,7 +13,6 @@ const onRequestHandler = (config) => {
      console.log('Making Request to' + config.url);
      return config
 }
-
 $axios.onRequest(onRequestHandler)
 $axios.onError(errorHandler)
 $axios.setBaseURL(`${process.env.baseUrl}`) // defining BaseUrl 

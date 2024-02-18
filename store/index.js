@@ -28,8 +28,8 @@ export const state = () => ({
  };
  
  export const actions = {
-     fetchList({ commit }){
-         this.$axios.get('/discover/movie')
+     fetchList({ commit },timeWindow ){
+         this.$axios.get(`/trending/movie/${timeWindow}`)
          .then((res) =>{
             const { page, total_pages, total_results, results } = res.data
             commit('setPagination', { page, total_pages, total_results, results })

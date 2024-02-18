@@ -5,16 +5,16 @@
           <div class="headers">
               <h1>Trending</h1>
               <div class="trending-list">
-                <NuxtLink to="`/trending/day`" class="trend-link">Today</NuxtLink>
-                <NuxtLink to="`/trending/week`" class="trend-link">Week</NuxtLink>
+                  <button @click="fetchTrending('day')" :class="{'active' : selectedTimeWindow ==='day'}" class="trend-link">Today</button>
+                  <button @click="fetchTrending('week')" :class ="{'active' :selectedTimeWindow === 'week'}" class="trend-link">Week</button>
               </div>
-          </div>
+          </div> 
           <div class="movie-lists">
-              <NuxtLink :to="`/movies/${movie.id}`" class="movies" v-for="(movie,index) in movies" :key="index">
-                <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="Poster">
-                <h3>{{ movie.title }}</h3>
+            <NuxtLink :to="`/movies/${movie.id}`" class="movies" v-for="(movie,index) in movies" :key="index">
+                  <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="Poster">
+                  <h3>{{ movie.title }}</h3>
               </NuxtLink>
-            </div>
+           </div>
         </div>
   </div>
 </template>
@@ -22,16 +22,29 @@
 import { mapGetters } from 'vuex'
 export default{
   name:'IndexPage',
+  data(){
+     return{
+       selectedTimeWindow :'day',
+     }
+  },
   computed:{
      ...mapGetters({
-        movies:'movies/getList'
+        movies:'getList'
      })
   },
-  mounted(){
-      this.$store.dispatch('movies/fetchList')
-   }
+  methods:{
+     fetchTrending(timeWindow){
+          this.selectedTimeWindow = timeWindow
+          this.$store.dispatch('fetchList',timeWindow)
+     }
+     
+  },
+  mounted() {
+    this.fetchTrending('day');  // Fetch trending movies for the 'day' time window by default
+  },
 }
 </script>
+
 <style>
 .list-container{
    display: flex;
@@ -51,16 +64,24 @@ export default{
 .trending-list{
    display: flex;
    gap:30px;
-   border: 1px solid black;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   padding:2px 6px; 
    border-radius: 30px;
-   padding:10px 40px;
+}
+.trend-link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(58, 58, 220);
+   
+    border:none;
+    cursor: pointer;
 
 }
-.trend-link{
-    text-decoration: none;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: rgb(176, 11, 176);
+.trend-link.active{
+   background-color:rgb(58, 58, 220) ;
+   color: white;
+   padding:10px 22px;
+   border-radius: 30px;
 }
 .movie-lists{
   width:82%;
@@ -91,4 +112,5 @@ export default{
    color: black;
    padding:10px;
 }
+
 </style>
