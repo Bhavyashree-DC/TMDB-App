@@ -110,7 +110,7 @@ export default{
    font-size: 1.5rem;
    font-weight: 600;
    color: black;
-   padding:10px;
+   padding:20px;
 }
 
 </style>

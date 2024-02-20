@@ -56,13 +56,13 @@ export default{
   border-radius:20px ;
 }
 h1{
-    font-size: 1.6rem;
-    margin: 15px 0px;
+    font-size: 1.8rem;
+    margin: 15px 22px;
 }
 .movie p{
    margin: 10px 20px;
-   font-size: 1.3rem;
-   line-height: 30px;
+   font-size: 1.4rem;
+   line-height: 28px;
    letter-spacing: 0.7px;
 }
 .movie-overview{
@@ -71,8 +71,9 @@ h1{
 .movie h3,
 .movie h5,
 .movie h6{
-    margin: 14px 25px;
+    margin: 24px 25px;
     font-size: 18px;
+    line-height: 26px;
 }
 .back-arrow{
    position: absolute;
