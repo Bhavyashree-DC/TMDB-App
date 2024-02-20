@@ -4,13 +4,21 @@
         <div class="list-container">
           <div class="headers">
               <h1>Trending</h1>
+              <el-row gutter="12">
+               <el-col v-for="(movie,index) in movies" :key="index">
+
+               </el-col>
+
+              </el-row>
               <div class="trending-list">
+               <!-- <el-button type="primary" round>Primary</el-button>
+               <el-button type="success" round>Success</el-button> -->
                   <button @click="fetchTrending('day')" :class="{'active' : selectedTimeWindow ==='day'}" class="trend-link">Today</button>
                   <button @click="fetchTrending('week')" :class ="{'active' :selectedTimeWindow === 'week'}" class="trend-link">Week</button>
               </div>
           </div> 
           <div class="movie-lists">
-            <NuxtLink :to="`/movies/${movie.id}`" class="movies" v-for="(movie,index) in movies" :key="index">
+            <NuxtLink :to="`/movies/${movie.id}`" class="movies" >
                   <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="Poster">
                   <h3>{{ movie.title }}</h3>
               </NuxtLink>
