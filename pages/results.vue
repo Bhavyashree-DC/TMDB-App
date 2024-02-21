@@ -1,5 +1,8 @@
 <template> 
-    <div class="index-page">    
+    <div class="result-page">
+      <div class="back-arrow">
+               <NuxtLink to="/" class="home-link"><i class="el-icon-d-arrow-left"></i></NuxtLink>
+            </div>    
         <div class="headers">
             <h1>Result Movie page</h1>
         </div>
@@ -26,71 +29,41 @@
        })
     }
 }
-//     methods:{
-//        fetchTrending(timeWindow){
-//             this.selectedTimeWindow = timeWindow
-//             // this.$store.dispatch('fetchList',timeWindow)
-//        }
-       
-//     },
-//     mounted() {
-//       this.fetchTrending('day');  // Fetch trending movies for the 'day' time window by default
-//     },
-//  }
 </script>
   
   <style>
-  .list-container{
+  .result-page{
+     width: 100%;
      display: flex;
      align-items: center;
      justify-content: center;
      flex-direction: column;
+     position:relative;
   }
   .headers{
      display: flex;
      align-items: center;
-     justify-content: flex-start;
-     gap:20px;
+    
      text-align: start;
      letter-spacing: 1px;
      margin-top: 30px;
+   
   }
-  .trending-list{
-     display: flex;
-     gap:30px;
-     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-     padding:2px 6px; 
-     border-radius: 30px;
-  }
-  .trend-link {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: rgb(58, 58, 220);
-     
-      border:none;
-      cursor: pointer;
-  
-  }
-  .trend-link.active{
-     background-color:rgb(58, 58, 220) ;
-     color: white;
-     padding:10px 22px;
-     border-radius: 30px;
-  }
+ 
   .movie-lists{
-    width:82%;
-     margin: 20px;
+     width:82%;
+     min-height: 600px;
+     /* margin: 20px; */
      display: flex;
      align-items: center;
-     justify-content: space-between;
-     gap:10px;
-     overflow-x: auto;
+     /* justify-content: space-between; */
+     overflow-y: auto;
   }
   
   .movies{
      display: flex;
      flex-direction: column;
-     align-items: center;
+     /* align-items: center; */
      justify-content: center;
      gap:18px;
      text-decoration: none;
@@ -106,5 +79,14 @@
      color: black;
      padding:20px;
   }
-  
+  .back-arrow{
+   position: absolute;
+   top: 40px;
+   left:90px
+  }
+.home-link{
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+}
   </style>
