@@ -28,8 +28,8 @@ export const state = () => ({
  };
  
  export const actions = {
-     fetchList({ commit },timeWindow ){
-         this.$axios.get(`/trending/movie/${timeWindow}`)
+     fetchList({ commit }){
+         this.$axios.get(`/trending/movie/`)
          .then((res) =>{
             const { page, total_pages, total_results, results } = res.data
             commit('setPagination', { page, total_pages, total_results, results })
@@ -37,10 +37,19 @@ export const state = () => ({
          })
      },
      fetchData({ commit }, movieId){
-        this.$axios.get(`/movie/${movieId}`)
+         this.$axios.get(`/movie/${movieId}`)
+         .then((res) =>{
+            commit('setData',res.data)
+         })
+     },
+     searchMovie({ commit }, query){
+      this.$axios.get(t(`search/movie?query=${query}`))
       .then((res) =>{
-         commit('setData',res.data)
+         const { page, total_pages, total_results, results } = res.data
+         commit('setPagination', { page, total_pages, total_results, results })
+         commit('setList',results)
+         this.route.push('/results')
       })
-   }
+  },
  };
  
