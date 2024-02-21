@@ -8,16 +8,13 @@
                 <h2>{{ title }}</h2>
             </div>
             <div class="search-bar-input">
-                <div class="search-button">
-                    <el-input
-                        placeholder="Search Movie,TV..."
-                        prefix-icon="el-icon-search"
-                        v-model="query"
-                        @onChange="searchQuery"
-                     >
-                    </el-input>
-                    <!-- <button >Search</button> -->
-                </div>
+                <el-input
+                    v-model="query"
+                    placeholder=" Search Movie,TV..."
+                    prefix-icon="el-icon-search"
+                    @change="searchQuery"
+                    >
+                </el-input>
             </div>
         </div>      
     </div>
@@ -35,11 +32,10 @@
         },
         methods:{
             searchQuery(value){
-                if(value && value !== null){
-                      this.$store.dispatch('searchMovie')
-                }
-                else{
-                    this.$message.warning("please enter a text to search...")
+                if(value && value!== null){
+                    this.$store.dispatch('searchMovie',value)
+                }else{
+                    this.$message.warning('Plz Enter Text to Search... ')
                 }
             }
         }

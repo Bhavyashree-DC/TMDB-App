@@ -9,6 +9,7 @@
                   <el-button @click="fetchTrending('week')" :class ="{'active' :selectedTimeWindow === 'week'}" class="trend-link" type="primary" round>Week</el-button>
                </div>
             </div>
+           
             <div class="movie-list">
                <el-row :gutter="10" v-for="(movie,index) in movies" :key="index">
                   <el-col
@@ -17,10 +18,6 @@
                      :md="4"
                      :sm="12"
                      :xs="24">
-                     <!-- <NuxtLink :to="`/movies/${movie.id}`" class="movies" >
-                           <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="Poster">
-                           <h3>{{ movie.title }}</h3>
-                     </NuxtLink> -->
                       <Movie
                        :id="movie.id"
                        :title="movie.title"
@@ -31,37 +28,32 @@
             </div>
               
             </div>
-          <!-- <div class="movie-lists">
-              <MovieCard
-                :title="title"
-              ></MovieCard>
-           </div> 
-        </div>-->
-  </div>
+    </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 export default{
   name:'IndexPage',
-//   data(){
-//      return{
-//        selectedTimeWindow :'day',
-//      }
-//   },
+  data(){
+      return{
+      selectedTimeWindow :'day',
+      }
+   },
   computed:{
      ...mapGetters({
         movies:'getList'
      })
-  },
-  mounted(){
-       this.$store.dispatch('fetchList')
-     }
-     
+  }, 
+  methods:{
+      fetchTrending(timeWindow){
+         this.selectedTimeWindow = timeWindow
+         this.$store.dispatch('fetchList',timeWindow)
+      },
+   },
+   mounted(){
+      this.fetchTrending('day');  // Fetch trending movies for the 'day' time window by default
+   },
 }
-//   mounted() {
-//     this.fetchTrending('day');  // Fetch trending movies for the 'day' time window by default
-//   },
-
 </script>
 
 <style>
