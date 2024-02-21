@@ -4,28 +4,32 @@
         <div class="list-container">
             <div class="headers">
                <h1>Trending</h1>
-               <!-- <div class="trending-list">
+               <div class="trending-list">
                   <el-button @click="fetchTrending('day')" :class="{'active' : selectedTimeWindow ==='day'}" class="trend-link" type="primary" round>Today</el-button>
                   <el-button @click="fetchTrending('week')" :class ="{'active' :selectedTimeWindow === 'week'}" class="trend-link" type="primary" round>Week</el-button>
-               </div> -->
+               </div>
             </div>
-              <el-row :gutter="10">
-               <el-col v-for="(movie,index) in movies" 
-                  :key="index"
-                  :lg="3"
-                  :md="4"
-                  :sm="12"
-                  :xs="24">
-                  <MovieCard
-                     :id="movie.id"
-                     :title="movie.title"
-                     :poster="movie.poster_path" 
-                  >
-                  </MovieCard>
-               </el-col>
-
+            <div class="movie-list">
+               <el-row :gutter="10" v-for="(movie,index) in movies" :key="index">
+                  <el-col
+                     :key="index"
+                     :lg="3"
+                     :md="4"
+                     :sm="12"
+                     :xs="24">
+                     <!-- <NuxtLink :to="`/movies/${movie.id}`" class="movies" >
+                           <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="Poster">
+                           <h3>{{ movie.title }}</h3>
+                     </NuxtLink> -->
+                      <Movie
+                       :id="movie.id"
+                       :title="movie.title"
+                       :poster="movie.poster_path"
+                      ></Movie>
+                  </el-col>
               </el-row>
-             
+            </div>
+              
             </div>
           <!-- <div class="movie-lists">
               <MovieCard
@@ -76,6 +80,14 @@ export default{
    letter-spacing: 1px;
    margin-top: 30px;
 }
+.movie-list{
+    width:90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:20px;
+}
 .trending-list{
    display: flex;
    gap:30px;
@@ -97,15 +109,6 @@ export default{
    color: white;
    padding:10px 22px;
    border-radius: 30px;
-}
-.movie-lists{
-  width:82%;
-   margin: 20px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   gap:10px;
-   overflow-x: auto;
 }
 
 .movies{
