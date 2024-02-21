@@ -21,7 +21,7 @@
             <i class="ri-notification-2-line"></i>
             <i class="ri-search-line"></i>
         </div>
-    </div>
+  </div>
 </template>
 
 <script>

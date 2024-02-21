@@ -1,7 +1,7 @@
 <template> 
   <div class="movie-page">
        <div class="back-arrow">
-          <NuxtLink to="/" class="home-link"><i class="ri-arrow-left-s-line"></i></NuxtLink>
+          <NuxtLink to="/" class="home-link"><i class="el-icon-d-arrow-left"></i></NuxtLink>
         </div>
         <div v-if ="movie" class="movie">
           <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="Poster">
@@ -29,8 +29,6 @@ export default{
 }
 </script>
 <style>
-
-@import 'remixicon/fonts/remixicon.css';
 
 .movie-page{
    margin: 20px;

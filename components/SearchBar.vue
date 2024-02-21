@@ -9,8 +9,14 @@
             </div>
             <div class="search-bar-input">
                 <div class="search-button">
-                    <input type="text" placeholder=" Search for movies,tv shows,people ">
-                    <button>Search</button>
+                    <el-input
+                        placeholder="Search Movie,TV..."
+                        prefix-icon="el-icon-search"
+                        v-model="query"
+                        @onChange="searchQuery"
+                     >
+                    </el-input>
+                    <!-- <button >Search</button> -->
                 </div>
             </div>
         </div>      
@@ -23,7 +29,18 @@
         data(){
             return{
                header:'Welcome .',
-               title:'Millions of movies, TV shows and people to discover. Explore now.'
+               title:'Millions of movies, TV shows and people to discover. Explore now.',
+               query:'',
+            }
+        },
+        methods:{
+            searchQuery(value){
+                if(value && value !== null){
+                      this.$store.dispatch('searchMovie')
+                }
+                else{
+                    this.$message.warning("please enter a text to search...")
+                }
             }
         }
     }
@@ -72,7 +89,7 @@
     align-items: center;
     margin: 50px 30px;
     padding: 30px 50px;
-    width: 100%; /* Add width property */
+    width: 100%; 
 }
 
 .search-button {
@@ -80,12 +97,12 @@
     width: 100%;
 }
 
-.search-bar-input input[type='text'] {
-    width: 95%; 
+.search-bar-input::v-deep el-input {
+    width: 90%;
     height: 70px;
     border-radius: 40px;
-    padding: 8px 40px;
-    margin-right: 50px; 
+    padding: 28px 40px;
+    margin-right: 50px;
     border: none;
     outline: none;
     box-sizing: border-box;

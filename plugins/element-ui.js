@@ -1,4 +1,8 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
- 
-Vue.use(ElementUI)
+import locale from 'element-ui/lib/locale/lang/en'
+import 'element-ui/lib/theme-chalk/index.css';
+// import '../static/assets/element-variable.scss'
+
+
+Vue.use(ElementUI, { locale })

@@ -2,55 +2,62 @@
   <div class="index-page">
       <SearchBar></SearchBar>     
         <div class="list-container">
-          <div class="headers">
-              <h1>Trending</h1>
-              <el-row gutter="12">
-               <el-col v-for="(movie,index) in movies" :key="index">
-
+            <div class="headers">
+               <h1>Trending</h1>
+               <!-- <div class="trending-list">
+                  <el-button @click="fetchTrending('day')" :class="{'active' : selectedTimeWindow ==='day'}" class="trend-link" type="primary" round>Today</el-button>
+                  <el-button @click="fetchTrending('week')" :class ="{'active' :selectedTimeWindow === 'week'}" class="trend-link" type="primary" round>Week</el-button>
+               </div> -->
+            </div>
+              <el-row :gutter="10">
+               <el-col v-for="(movie,index) in movies" 
+                  :key="index"
+                  :lg="3"
+                  :md="4"
+                  :sm="12"
+                  :xs="24">
+                  <MovieCard
+                     :id="movie.id"
+                     :title="movie.title"
+                     :poster="movie.poster_path" 
+                  >
+                  </MovieCard>
                </el-col>
 
               </el-row>
-              <div class="trending-list">
-               <!-- <el-button type="primary" round>Primary</el-button>
-               <el-button type="success" round>Success</el-button> -->
-                  <button @click="fetchTrending('day')" :class="{'active' : selectedTimeWindow ==='day'}" class="trend-link">Today</button>
-                  <button @click="fetchTrending('week')" :class ="{'active' :selectedTimeWindow === 'week'}" class="trend-link">Week</button>
-              </div>
-          </div> 
-          <div class="movie-lists">
-            <NuxtLink :to="`/movies/${movie.id}`" class="movies" >
-                  <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="Poster">
-                  <h3>{{ movie.title }}</h3>
-              </NuxtLink>
-           </div>
-        </div>
+             
+            </div>
+          <!-- <div class="movie-lists">
+              <MovieCard
+                :title="title"
+              ></MovieCard>
+           </div> 
+        </div>-->
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 export default{
   name:'IndexPage',
-  data(){
-     return{
-       selectedTimeWindow :'day',
-     }
-  },
+//   data(){
+//      return{
+//        selectedTimeWindow :'day',
+//      }
+//   },
   computed:{
      ...mapGetters({
         movies:'getList'
      })
   },
-  methods:{
-     fetchTrending(timeWindow){
-          this.selectedTimeWindow = timeWindow
-          this.$store.dispatch('fetchList',timeWindow)
+  mounted(){
+       this.$store.dispatch('fetchList')
      }
      
-  },
-  mounted() {
-    this.fetchTrending('day');  // Fetch trending movies for the 'day' time window by default
-  },
 }
+//   mounted() {
+//     this.fetchTrending('day');  // Fetch trending movies for the 'day' time window by default
+//   },
+
 </script>
 
 <style>
@@ -79,14 +86,14 @@ export default{
 .trend-link {
     font-size: 1.2rem;
     font-weight: 600;
-    color: rgb(58, 58, 220);
+    color: white;
    
     border:none;
     cursor: pointer;
 
 }
 .trend-link.active{
-   background-color:rgb(58, 58, 220) ;
+   background-color:lightslategray ;
    color: white;
    padding:10px 22px;
    border-radius: 30px;
