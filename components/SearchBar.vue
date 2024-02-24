@@ -13,6 +13,7 @@
                     placeholder=" Search Movie,TV..."
                     prefix-icon="el-icon-search"
                     @change="searchQuery"
+                    class="custom-search"
                     >
                 </el-input>
             </div>
@@ -35,7 +36,11 @@
                 if(value && value!== null){
                     this.$store.dispatch('searchMovie',value)
                 }else{
-                    this.$message.warning('Plz Enter Text to Search... ')
+                    <el-alert
+                        title="Plz Enter Text to Search "
+                        type="warning"
+                        show-icon>
+                    </el-alert>
                 }
             }
         }
@@ -84,8 +89,8 @@
     display: flex;
     align-items: center;
     margin: 50px 30px;
-    padding: 30px 50px;
-    width: 100%; 
+    padding:30px 50px;
+    width: 50%; 
 }
 
 .search-button {

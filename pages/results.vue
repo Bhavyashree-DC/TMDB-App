@@ -4,10 +4,10 @@
                <NuxtLink to="/" class="home-link"><i class="el-icon-d-arrow-left"></i></NuxtLink>
             </div>    
         <div class="headers">
-            <h1>Result Movie page</h1>
+            <h1> Movie's List</h1>
         </div>
         <div class="movie-lists">
-            <el-table :data="movies" style="width:100%" border hover>
+            <el-table :data="movies" style="width:100%" border>
                 <el-table-column prop="id" label="ID" />
                 <el-table-column prop="title" label="Title" />
                 <el-table-column prop="release_date" label="ReleaseDate" />
@@ -45,8 +45,8 @@
      align-items: center;
     
      text-align: start;
-     letter-spacing: 1px;
-     margin-top: 30px;
+     letter-spacing: 0.6px;
+     margin: 30px 0px;
    
   }
  

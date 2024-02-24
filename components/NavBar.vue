@@ -1,6 +1,44 @@
 <template>
-     <div class="nav-bar">
-        <div class="nav-logo-links">
+
+<el-menu
+  class="el-menu"
+  mode="horizontal"
+  @select="handleSelect"
+  background-color="rgb(3,37,65)"
+  text-color="#fff"
+  active-text-color="#ffd04b">
+  <el-menu-item><img src="../static/logo.jpg" alt="logo"></el-menu-item>
+  <!-- <el-menu-item index="1"></el-menu-item> -->
+  <el-submenu index="1">
+      <template  slot="title">Movie</template>
+      <el-menu-item index="1-1">Popular</el-menu-item>
+      <el-menu-item index="1-2">Now Playing</el-menu-item>
+      <el-menu-item index="1-3">Upcoming</el-menu-item>
+      <el-menu-item index="1-4">Top Rated</el-menu-item>
+  </el-submenu>
+  <el-submenu index="2">
+      <template  slot="title">TV Shows</template>
+      <el-menu-item index="2-1">Popular</el-menu-item>
+      <el-menu-item index="2-2">Airing Today</el-menu-item>
+      <el-menu-item index="2-3">On TV</el-menu-item>
+      <el-menu-item index="2-4">Top Rated</el-menu-item>
+  </el-submenu>
+  <el-submenu index="3">
+      <template slot="title">Popular</template>
+      <el-menu-item index="3-1">Popular People</el-menu-item>
+  </el-submenu>
+  <el-submenu index="4">
+      <template  slot="title">More</template>
+      <el-menu-item index="4-1">Discussion</el-menu-item>
+      <el-menu-item index="4-2">LeaderBoard</el-menu-item>
+      <el-menu-item index="4-3">Support</el-menu-item>
+      <el-menu-item index="4-4">API</el-menu-item>
+  </el-submenu>
+  <!-- <el-menu-item>Log In</el-menu-item> -->
+  <el-button type="primary" round>SELECTED MOVIE</el-button>
+</el-menu>
+
+        <!-- <div class="nav-logo-links">
             <div class="logo">
                 <img src="../static/logo.jpg" alt="logo">
             </div>
@@ -20,8 +58,8 @@
             </div>
             <i class="ri-notification-2-line"></i>
             <i class="ri-search-line"></i>
-        </div>
-  </div>
+        </div> -->
+  <!-- </div> -->
 </template>
 
 <script>
@@ -35,21 +73,22 @@
 
 @import 'remixicon/fonts/remixicon.css';
 
-   .nav-bar{
-     min-width:100%;
-     height:50px;
-     background-color: rgb(3,37,65);
-     color: white;
-
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-
-     font-size: 20px;
-     font-weight: 600;
-     padding: 50px 0px;
+  .el-menu{
+     padding:20px;
   }
 
+  .el-submenu__title{
+      font-size: 1.5rem;
+  }
+  .el-menu-item{
+     font-size: 1.1rem;
+  }
+
+  
+  .el-menu-item img{
+    width: 120px;
+    height: 60px;
+  }
   .nav-logo-links{
       display: flex;
       align-items: center;
