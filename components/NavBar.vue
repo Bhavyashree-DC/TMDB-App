@@ -1,5 +1,5 @@
 <template>
-
+  
 <el-menu
   class="el-menu"
   mode="horizontal"
@@ -8,7 +8,7 @@
   text-color="#fff"
   active-text-color="#ffd04b">
   <el-menu-item><img src="../static/logo.jpg" alt="logo"></el-menu-item>
-  <!-- <el-menu-item index="1"></el-menu-item> -->
+ <!-- <el-menu-item index="1"></el-menu-item>  -->
   <el-submenu index="1">
       <template  slot="title">Movie</template>
       <el-menu-item index="1-1">Popular</el-menu-item>
@@ -34,9 +34,20 @@
       <el-menu-item index="4-3">Support</el-menu-item>
       <el-menu-item index="4-4">API</el-menu-item>
   </el-submenu>
-  <!-- <el-menu-item>Log In</el-menu-item> -->
-  <el-button type="primary" round>SELECTED MOVIE</el-button>
-</el-menu>
+   <!-- <el-menu-item>Log In</el-menu-item>  -->
+
+   <el-input
+      placeholder="Type something"
+      v-model="input4">
+      <i slot="prefix" class="el-input__icon el-icon-search"></i>
+  </el-input>
+
+  <!-- <el-button type="primary" round>SELECTED MOVIE</el-button> -->
+  
+
+</el-menu> 
+
+
 
         <!-- <div class="nav-logo-links">
             <div class="logo">
@@ -76,7 +87,13 @@
   .el-menu{
      padding:20px;
   }
-
+  .el-menu--horizontal {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+ .el-menu-item li{
+   
+ }
   .el-submenu__title{
       font-size: 1.5rem;
   }
@@ -84,16 +101,23 @@
      font-size: 1.1rem;
   }
 
-  
   .el-menu-item img{
     width: 120px;
-    height: 60px;
+    height: 68px;
   }
-  .nav-logo-links{
+
+  .el-input{
+     margin-left: 40%;
+     padding:10px 0px;
+     width: 28%;
+  }
+   
+  /* .nav-logo-links{
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin: 0px 50px;
+      border-radius: 10px;
   }
   .nav-bar .logo img{
     padding: 10px 30px;
@@ -131,5 +155,5 @@
   }
   .ri-search-line{
     color: rgb(93, 208, 202);
-  }
+  } */
 </style>
